@@ -21,11 +21,29 @@ while True:
 max_score = 50
 player_scores = [0 for i in range(players)]
 
-while player_scores < max_score:
-    for i in range(players)
+while max(player_scores) < max_score:
+    for i in range(players):
+        print(f'player {i+1}\'s turn:')
         should_dice_roll = input('do you want to roll the dice? (y/n)')
-        if should_dice_roll.lower() != 'y':
-            break
+        current_score = 0
 
         while True:
-            
+            if should_dice_roll.lower() != 'y':
+                break
+
+            value = dice_roll()
+            if value == 1:
+                print(f'you rolled a {value}, you lost this round :( your score will be reseted!')
+                current_score = 0
+                break
+            else:
+                current_score += value
+                print(f'you rolled a {value}')
+        
+            print(f'you score {current_score} in this round')
+
+            player_scores[i] = current_score
+            print(f'your total score is {player_scores[i]}')
+
+            current_score =+ value
+            print(f'your total score = {player_scores[i]}!!')
