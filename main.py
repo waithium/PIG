@@ -24,10 +24,11 @@ player_scores = [0 for i in range(players)]
 while max(player_scores) < max_score:
     for i in range(players):
         print(f'player {i+1}\'s turn:')
-        should_dice_roll = input('do you want to roll the dice? (y/n)')
         current_score = 0
 
         while True:
+            should_dice_roll = input('do you want to roll the dice? (y/n): ')
+            
             if should_dice_roll.lower() != 'y':
                 break
 
@@ -40,10 +41,9 @@ while max(player_scores) < max_score:
                 current_score += value
                 print(f'you rolled a {value}')
         
-            print(f'you score {current_score} in this round')
 
-            player_scores[i] = current_score
+            player_scores[i] += current_score
             print(f'your total score is {player_scores[i]}')
 
-            current_score =+ value
-            print(f'your total score = {player_scores[i]}!!')
+            # current_score += value
+            # print(f'your total score = {player_scores[i]}!!')
